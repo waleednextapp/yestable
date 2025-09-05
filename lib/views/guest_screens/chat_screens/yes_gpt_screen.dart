@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:yestable/controllers/yes_gpt_controller.dart';
+import 'package:yestable/widget/selected_menu_bottomsheet.dart';
 
 import '../../../constants/color_constants.dart';
 import '../../../constants/constants_widgets.dart';
@@ -313,24 +314,30 @@ class YesGptScreen extends StatelessWidget {
                               color: whiteColor,
                               borderRadius: BorderRadius.circular(25.sp),
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.add, color: floatingActionTextColor, size: 20.sp),
-                                SizedBox(width: 2.w),
-                                Flexible( // 👈 ensures text shrink kare if needed
-                                  child: Padding(
-                                    padding: EdgeInsets.only(right: 2.w),
-                                    child: customText(
-                                      text: "Add to menu",
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.w600,
-                                      fontFamily: "CormorantGaramond",
-                                      color: floatingActionTextColor
+                            child: InkWell(
+                              onTap: (){
+                                Get.back();
+                                selectedMenuBottomSheet(context);
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.add, color: floatingActionTextColor, size: 20.sp),
+                                  SizedBox(width: 2.w),
+                                  Flexible( // 👈 ensures text shrink kare if needed
+                                    child: Padding(
+                                      padding: EdgeInsets.only(right: 2.w),
+                                      child: customText(
+                                        text: "Add to menu",
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.w600,
+                                        fontFamily: "CormorantGaramond",
+                                        color: floatingActionTextColor
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
